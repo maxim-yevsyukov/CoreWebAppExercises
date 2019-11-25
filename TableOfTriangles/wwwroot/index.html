@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Triangle Canvas Example</title>
+</head>
+<body>
+    <canvas class="canvas" id="myCanvas" width="600" height="600"></canvas>
+
+    <script src="js/fabric.min.3.5.0.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript">
+        getAndDrawItems();
+    </script>
+
+    <div id="vertices">
+        <h3>Provide vertex coordinates to get row/column,</h3>
+        <form class="mainContainer" id="formVertices" action="javascript:void(0);" onsubmit="getRowColumn()">
+            
+            <table>
+                <tr>
+                    <th><label for="v1x">V1 X</label></th>
+                    <th><label for="v1y">V1 Y</label></th>
+                    <th><label for="v2x">V2 X</label></th>
+                    <th><label for="v2y">V2 Y</label></th>
+                    <th><label for="v3x">V3 X</label></th>
+                    <th><label for="v3y">V3 Y</label></th>
+                </tr>
+                <tr>
+                    <td><input class="vertex" type="text" id="v1x"></td>
+                    <td><input class="vertex" type="text" id="v1y"></td>
+                    <td><input class="vertex" type="text" id="v2x"></td>
+                    <td><input class="vertex" type="text" id="v2y"></td>
+                    <td><input class="vertex" type="text" id="v3x"></td>
+                    <td><input class="vertex" type="text" id="v3y"></td>
+                </tr>
+            </table>
+            <p />
+            <input type="submit" value="Get Row/Column">
+
+        </form>
+    </div>
+
+    <div id="row-column">
+        <h3>and vice versa:</h3>
+        <form class="mainContainer" id="formRowColumn" action="javascript:void(0);" onsubmit="getVertices()">
+            <table>
+                <tr>
+                    <th>Row</th>
+                    <th>Column</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="row" onkeyup="this.value = this.value.toUpperCase();"></td>
+                    <td><input type="text" id="column"></td>
+                    <td><input type="submit" value="Get Vertices"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>
