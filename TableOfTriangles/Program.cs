@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TableOfTriangles.Models;
 
 namespace TableOfTriangles
 {
@@ -10,13 +9,9 @@ namespace TableOfTriangles
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            
             using(var scope = host.Services.CreateScope())
             {
-                var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<TabularTriangleContext>();
-
-                DataGenerator.Initialize(services);
+                DataGenerator.Initialize(scope.ServiceProvider);
             }
 
             host.Run();
